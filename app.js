@@ -8,6 +8,7 @@ const app = Vue.createApp({
         phoneNumber: "",
         email: "",
       },
+      search: "",
     };
   },
 
@@ -21,6 +22,17 @@ const app = Vue.createApp({
       this.activeStatus = "all";
       this.contact = {};
       toastr.success("مخاطب جدید اضافه شد");
+    },
+  },
+
+  computed: {
+    getContactByFilter() {
+      if (this.search == "") {
+        return [];
+      }
+      return this.contacts.filter((person) =>
+        person.name.toLowerCase().includes(this.search.toLowerCase())
+      );
     },
   },
 });

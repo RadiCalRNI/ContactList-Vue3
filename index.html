@@ -24,12 +24,27 @@
 
         <!-- Search Part -->
         <div class="panel" v-show="activeStatus == 'search'">
-            <h1>جستوجو مخاطبین</h1>
+            <h1>جستجو مخاطبین</h1>
             <form id="search" action="#">
                 <div>
-                    <input type="text" placeholder="نام مخاطب را وارد کنید" />
+                    <input v-model="search" type="text" placeholder="نام مخاطب را وارد کنید" />
                 </div>
             </form>
+            <hr>
+            <ul class="p-2">
+                <li class="alert alert-danger list-unstyled" v-if="getContactByFilter.length == 0">
+                    مخاطبی برای نمایش وجود ندارد
+                </li>
+                <li class="contact" v-for="item in getContactByFilter">
+                    <p class="d-flex justify-content-between">
+                        <span>نام و نام خانوادگی : {{item.name}}</span>
+                        <span>شماره تماس : {{item.phoneNumber}}</span>
+                    </p>
+                    <p>
+                        ایمیل : {{item.email}}
+                    </p>
+                </li>
+            </ul>
         </div>
 
         <!-- Add Part -->
@@ -59,7 +74,7 @@
 
         <!-- Contact List Part -->
         <div class="panel" v-show="activeStatus == 'all'">
-            <ul class="p-1">
+            <ul class="p-2">
                 <li class="alert alert-danger list-unstyled" v-if="contacts.length == 0">
                     مخاطبی برای نمایش وجود ندارد
                 </li>
