@@ -1,12 +1,15 @@
 const app = Vue.createApp({
-    data() {
-        return {
+  data() {
+    return {
+      activeStatus: "all",
+    };
+  },
 
-        }
+  methods: {
+    changeActive(activeStatus) {
+      this.activeStatus = activeStatus;
     },
-    methods: {
-
-    },
+  },
 });
 
 app.mount("#app");

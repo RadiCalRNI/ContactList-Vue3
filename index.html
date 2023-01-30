@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact List</title>
     <script src="https://unpkg.com/vue@next"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./app.css">
 </head>
 
@@ -14,9 +15,9 @@
     <div id="app" class="container pt-5">
         <div id="navigation ">
             <ul class="nav-list">
-                <li>نمایش همه</li>
-                <li>جستجو</li>
-                <li>افزودن مخاطب</li>
+                <li @click="changeActive('all')" :class="{active: activeStatus == 'all'}">نمایش همه</li>
+                <li @click="changeActive('search')" :class="{active: activeStatus == 'search'}">جستجو</li>
+                <li @click="changeActive('add')" :class="{active: activeStatus == 'add'}">افزودن مخاطب</li>
             </ul>
         </div>
         <div class="panel">
@@ -27,7 +28,7 @@
                 </div>
             </form>
         </div>
-        <div id="contact-panel" class="panel">
+        <div class="panel">
             <form action="#">
                 <h1>افزودن مخاطب</h1>
                 <div class="row">
@@ -49,7 +50,7 @@
                 </div>
             </form>
         </div>
-        <div id="show-panel" class="panel">
+        <div class="panel">
 
         </div>
     </div>
