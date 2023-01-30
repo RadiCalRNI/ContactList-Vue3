@@ -59,7 +59,10 @@
 
         <!-- Contact List Part -->
         <div class="panel" v-show="activeStatus == 'all'">
-            <ul>
+            <ul class="p-1">
+                <li class="alert alert-danger list-unstyled" v-if="contacts.length == 0">
+                    مخاطبی برای نمایش وجود ندارد
+                </li>
                 <li class="contact" v-for="item in contacts">
                     <p class="d-flex justify-content-between">
                         <span>نام و نام خانوادگی : {{item.name}}</span>
