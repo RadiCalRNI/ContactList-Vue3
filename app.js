@@ -23,6 +23,13 @@ const app = Vue.createApp({
       this.contact = {};
       toastr.success("مخاطب جدید اضافه شد");
     },
+
+    deleteContact(number) {
+      this.contacts = this.contacts.filter(
+        (person) => person.phoneNumber != number
+      );
+      toastr.error("مخاطب با موفقیت حذف شد");
+    },
   },
 
   computed: {

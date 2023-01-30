@@ -32,7 +32,7 @@
             </form>
             <hr>
             <ul class="p-2">
-                <li class="alert alert-danger list-unstyled" v-if="getContactByFilter.length == 0">
+                <li class="alert alert-danger list-unstyled m-0" v-if="getContactByFilter.length == 0">
                     مخاطبی برای نمایش وجود ندارد
                 </li>
                 <li class="contact" v-for="item in getContactByFilter">
@@ -43,6 +43,7 @@
                     <p>
                         ایمیل : {{item.email}}
                     </p>
+                    <button @click="deleteContact(item.phoneNumber)" class="btn btn-danger mt-3">حذف</button>
                 </li>
             </ul>
         </div>
@@ -75,7 +76,7 @@
         <!-- Contact List Part -->
         <div class="panel" v-show="activeStatus == 'all'">
             <ul class="p-2">
-                <li class="alert alert-danger list-unstyled" v-if="contacts.length == 0">
+                <li class="alert alert-danger list-unstyled m-0" v-if="contacts.length == 0">
                     مخاطبی برای نمایش وجود ندارد
                 </li>
                 <li class="contact" v-for="item in contacts">
@@ -86,9 +87,11 @@
                     <p>
                         ایمیل : {{item.email}}
                     </p>
+                    <button @click="deleteContact(item.phoneNumber)" class="btn btn-danger mt-3">حذف</button>
                 </li>
             </ul>
         </div>
+
     </div>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
         integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
