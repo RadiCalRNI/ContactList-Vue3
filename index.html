@@ -20,6 +20,8 @@
                 <li @click="changeActive('add')" :class="{active: activeStatus == 'add'}">افزودن مخاطب</li>
             </ul>
         </div>
+
+        <!-- Search Part -->
         <div class="panel" v-show="activeStatus == 'search'">
             <h1>جستوجو مخاطبین</h1>
             <form id="search" action="#">
@@ -28,6 +30,8 @@
                 </div>
             </form>
         </div>
+
+        <!-- Add Part -->
         <div class="panel" v-show="activeStatus == 'add'">
             <form action="#">
                 <h1>افزودن مخاطب</h1>
@@ -50,8 +54,20 @@
                 </div>
             </form>
         </div>
-        <div class="panel" v-show="activeStatus == 'all'">
 
+        <!-- Contact List Part -->
+        <div class="panel" v-show="activeStatus == 'all'">
+            <ul>
+                <li class="contact" v-for="item in contacts">
+                    <p class="d-flex justify-content-between">
+                        <span>نام و نام خانوادگی: {{item.name}}</span>
+                        <span>شماره تماس: {{item.phoneNumber}}</span>
+                    </p>
+                    <p>
+                        ایمیل: {{item.email}}
+                    </p>
+                </li>
+            </ul>
         </div>
     </div>
     <script src="./app.js"></script>
