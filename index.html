@@ -20,7 +20,7 @@
                 <li @click="changeActive('add')" :class="{active: activeStatus == 'add'}">افزودن مخاطب</li>
             </ul>
         </div>
-        <div class="panel">
+        <div class="panel" v-show="activeStatus == 'search'">
             <h1>جستوجو مخاطبین</h1>
             <form id="search" action="#">
                 <div>
@@ -28,7 +28,7 @@
                 </div>
             </form>
         </div>
-        <div class="panel">
+        <div class="panel" v-show="activeStatus == 'add'">
             <form action="#">
                 <h1>افزودن مخاطب</h1>
                 <div class="row">
@@ -50,7 +50,7 @@
                 </div>
             </form>
         </div>
-        <div class="panel">
+        <div class="panel" v-show="activeStatus == 'all'">
 
         </div>
     </div>
