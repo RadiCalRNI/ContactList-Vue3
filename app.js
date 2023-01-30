@@ -20,6 +20,7 @@ const app = Vue.createApp({
       this.contacts.push(this.contact);
       this.activeStatus = "all";
       this.contact = {};
+      toastr.success("مخاطب جدید اضافه شد");
     },
   },
 });
