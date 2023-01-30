@@ -3,12 +3,23 @@ const app = Vue.createApp({
     return {
       activeStatus: "all",
       contacts: [],
+      contact: {
+        name: "",
+        phoneNumber: "",
+        email: "",
+      },
     };
   },
 
   methods: {
     changeActive(activeStatus) {
       this.activeStatus = activeStatus;
+    },
+
+    addContact() {
+      this.contacts.push(this.contact);
+      this.activeStatus = "all";
+      this.contact = {};
     },
   },
 });
